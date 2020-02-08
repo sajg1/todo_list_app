@@ -7,6 +7,8 @@ var completeSVG = '<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:x
 document.getElementById('add').addEventListener('click',    function() {
     var value = document.getElementById('item').value;
     if (value) addItemToDo(value);
+    // resets the input box to the placeholder text
+    document.getElementById('item').value = '';
   });
 
 // Add new item to the todo list
@@ -30,5 +32,6 @@ function addItemToDo(text) {
   buttons.appendChild(remove);
   buttons.appendChild(complete);
   item.appendChild(buttons);
-  list.appendChild(item);
+  // this prepends the newest list item, putting it to the top of the list
+  list.insertBefore(item, list.childNodes[0]);
 }
