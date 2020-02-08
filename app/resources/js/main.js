@@ -11,6 +11,16 @@ document.getElementById('add').addEventListener('click',    function() {
     document.getElementById('item').value = '';
   });
 
+function removeItem() {
+  var item = this.parentNode.parentNode;
+  var parent = item.parentNode;
+  console.log(item);
+  console.log(parent);
+  // Parent is the ul for todo list and item is the individiual li
+  parent.removeChild(item);
+
+}
+
 // Add new item to the todo list
 function addItemToDo(text) {
   var list = document.getElementById('todo');
@@ -24,6 +34,9 @@ function addItemToDo(text) {
   var remove = document.createElement('button');
   remove.classList.add('remove');
   remove.innerHTML = removeSVG;
+
+  // Add click event for removing item
+  remove.addEventListener('click', removeItem)
 
   var complete = document.createElement('button');
   complete.classList.add('complete');
