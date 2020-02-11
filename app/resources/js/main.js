@@ -16,14 +16,23 @@ document.getElementById('add').addEventListener('click',    function() {
     // resets the input box to the placeholder text
     document.getElementById('item').value = '';
     data.todo.push(value);
+    console.log(data);
   });
 
 function removeItem() {
   var item = this.parentNode.parentNode;
   var parent = item.parentNode;
+  var id = parent.id;
+  var value = item.innerText;
+
+  if (id === "todo") {
+    data.todo.splice(data.todo.indexOf(value), 1);
+  } else {
+    data.completed.splice(data.completed.indexOf(value), 1);
+  }
   // Parent is the ul for todo list and item is the individiual li
   parent.removeChild(item);
-
+  console.log(data);
 
 }
 
@@ -40,7 +49,7 @@ function completeItem() {
     data.completed.splice(data.completed.indexOf(value), 1);
     data.todo.push(value);
   }
-  
+
 
 
   // Check if item should be added to completed or to be re-added to todo list
