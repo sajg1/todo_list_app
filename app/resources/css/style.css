@@ -229,7 +229,7 @@ ul.todo#completed:before {
 }
 
 ul.todo#todo:empty:after {
-  content: 'You have nothing to!';
+  content: 'You have nothing to do!';
   margin: 15px 0 0 0;
 }
 
